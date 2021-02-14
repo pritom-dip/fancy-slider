@@ -32,11 +32,12 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
-  fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
-    .then(response => response.json())
-    // .then(data => console.log(data))
-    .then(data => showImages(data.hits))
-    .catch(err => console.log(err))
+  setTimeout(() => {
+    fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
+      .then(response => response.json())
+      .then(data => showImages(data.hits))
+      .catch(err => console.log(err))
+  }, 2000)
 }
 
 let slideIndex = 0;
@@ -148,3 +149,11 @@ const displaySpinner = () => {
   const spinner = document.getElementById("spinner");
   spinner.classList.toggle("d-none");
 }
+
+const duration = document.getElementById("duration");
+
+duration.addEventListener("keypress", function (event) {
+  if (event.key === 'Enter') {
+    createSlider();
+  }
+});
