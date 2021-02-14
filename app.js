@@ -74,10 +74,10 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
 
-  let duration = 500;
+  let duration = 1000;
   const givenDuration = document.getElementById('duration').value;
 
-  if (givenDuration > 500) {
+  if (givenDuration > 0) {
     duration = givenDuration;
   }
 
